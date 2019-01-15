@@ -49,7 +49,7 @@ class App extends Component {
      }))
 
   handleReportDelete = id =>
-    this.setState(({reports})  => ({
+    this.setState(({reports, report, editMode})  => ({
       reports: reports.filter(r => r.id !== id),
       editMode: report.id == id ? false:editMode,
       report: report.id == id ? {} :report   
