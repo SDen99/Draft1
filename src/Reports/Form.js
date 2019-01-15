@@ -34,7 +34,7 @@ export default withStyles(styles)(class extends Component {
     }
 
     static getDerivedStateFromProps({report}){
-       return report
+       return report || null
     }
 
     handleChange = name => ({target: {value}}) =>
