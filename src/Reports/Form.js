@@ -33,10 +33,8 @@ export default withStyles(styles)(class extends Component {
             }
     }
 
-    componentWillReceiveProps({report}){
-      this.setState({
-         ...report
-      })
+    static getDerivedStateFromProps({report}){
+       return report
     }
 
     handleChange = name => ({target: {value}}) =>
