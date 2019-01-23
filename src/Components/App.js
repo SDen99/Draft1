@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import {Header, Footer} from './Layouts/Index'
 import Reports from '../Reports'
-import {domain, reports} from '../Store'
+import {domain, reports} from '../Store2'
 
 
 class App extends Component {
@@ -51,8 +51,8 @@ class App extends Component {
   handleReportDelete = id =>
     this.setState(({reports, report, editMode})  => ({
       reports: reports.filter(r => r.id !== id),
-      editMode: report.id == id ? false:editMode,
-      report: report.id == id ? {} :report   
+      editMode: report.id === id ? false:editMode,
+      report: report.id === id ? {} :report   
     }))
   
   handleReportSelectEdit = id =>
@@ -69,7 +69,16 @@ class App extends Component {
       ],
       report
     }))
-  
+
+  handleBlockCreate = (report, block) =>
+    this.setState(({reports}) => ({
+      reports: [
+        ...reports.filter(r => r.id !== report.id),
+      report.push(block)
+      ],
+      report
+    }))
+
   render() {
     const reports = this.getReportsByDomain(),
           {category, report, editMode} = this.state
@@ -91,7 +100,7 @@ class App extends Component {
            onDelete={this.handleReportDelete}
            onSelectEdit={this.handleReportSelectEdit}
            onEdit={this.handleReportEdit}
-        />
+           />
 
         <Footer
           category = {category}

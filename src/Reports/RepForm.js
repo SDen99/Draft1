@@ -55,7 +55,7 @@ export default withStyles(styles)(class extends Component {
     
 
     render (){
-        const {title, description, domain } = this.state,
+        const {title, Footnote, domain } = this.state,
               {classes, report, domains: doms} = this.props
         
         return <form>
@@ -88,9 +88,9 @@ export default withStyles(styles)(class extends Component {
         <TextField
           multiline
           rows="4"
-          label="Description"
-          value={description}
-          onChange={this.handleChange('description')}
+          label="Footnote"
+          value={Footnote}
+          onChange={this.handleChange('Footnote')}
           margin="normal"
           className={classes.FormControl}
         />
