@@ -3,6 +3,7 @@ import './App.css';
 import {Header, Footer} from './Layouts/Index'
 import Reports from '../Reports'
 import {domain, reports} from '../Store2'
+import FileList from './FileList'
 
 
 class App extends Component {
@@ -89,7 +90,7 @@ class App extends Component {
           domains={domain} 
           onReportCreate={this.handleReportCreate}
         />
-
+        <FileList/>
         <Reports
            report = {report}
            category={category}
